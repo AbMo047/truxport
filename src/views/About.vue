@@ -57,8 +57,8 @@
             </div>
             
             <div class="stat-card">
-              <h3>99%</h3>
-              <p>Op Tijd Levering</p>
+              <h3>100%</h3>
+              <p>Klanttevredenheid</p>
             </div>
             
             <div class="stat-card">

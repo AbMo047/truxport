@@ -112,8 +112,8 @@
           </div>
 
           <div class="card text-center">
-            <h3 class="stat-number">99%</h3>
-            <p>Op Tijd Levering</p>
+            <h3 class="stat-number">100%</h3>
+            <p>Klanttevredenheid</p>
           </div>
         </div>
       </div>
