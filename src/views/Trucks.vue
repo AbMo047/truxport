@@ -383,11 +383,13 @@ import heroImage from '../assets/images/trucks-hero.jpg'
 }
 
 .spec-item {
-  display: flex;
-  justify-content: space-between;
   margin-bottom: 0.5rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid #e9ecef;
+  border-bottom: 1px solid var(--border);
+}
+
+.spec-item strong {
+  margin-right: 0.4rem;
 }
 
 .spec-item:last-child {
@@ -411,7 +413,7 @@ import heroImage from '../assets/images/trucks-hero.jpg'
 
 .truck-features li {
   padding: 0.25rem 0;
-  color: #666;
+  color: var(--text-muted);
 }
 
 .truck-features li:before {
@@ -420,13 +422,4 @@ import heroImage from '../assets/images/trucks-hero.jpg'
   font-weight: bold;
 }
 
-@media (max-width: 768px) {
-  .spec-item {
-    flex-direction: column;
-  }
-  
-  .spec-item strong {
-    margin-bottom: 0.25rem;
-  }
-}
 </style>
