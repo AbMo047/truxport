@@ -65,15 +65,14 @@
                 <label for="service">Gewenste Dienst</label>
                 <select id="service" v-model="form.service">
                   <option value="">Selecteer een dienst</option>
-                  <option value="airfreight">✈️ Luchtvracht</option>
-                  <option value="seafreight">🚢 Zeevracht</option>
-                  <option value="international-road">🌍 Internationaal Wegtransport</option>
-                  <option value="info-logistics">📊 Informatielogistiek</option>
-                  <option value="pallet">📦 Palletvervoer</option>
-                  <option value="volume">📏 Volumevervoer</option>
-                  <option value="length">📐 Lengtevervoer</option>
-                  <option value="urban">🏙️ Stedelijke Distributie</option>
-                  <option value="adr">⚠️ ADR Transport</option>
+                  <option value="adr">ADR Transport</option>
+                  <option value="express">Express Leveringen</option>
+                  <option value="snel">Sneltransport</option>
+                  <option value="international">Internationaal Transport</option>
+                  <option value="ships">Bevoorrading van Schepen</option>
+                  <option value="pallet">Palletvervoer</option>
+                  <option value="volume">Volumetransport</option>
+                  <option value="warehousing">Warehousing, Opslag en Overslag</option>
                   <option value="other">Anders</option>
                 </select>
               </div>
@@ -128,7 +127,7 @@
               </div>
               
               <button type="submit" class="btn btn-primary" :disabled="isSubmitting">
-                {{ isSubmitting ? 'Verzenden...' : 'Verstuur Offerte Aanvraag' }}
+                {{ isSubmitting ? 'Verzenden...' : 'Verstuur Offerteaanvraag' }}
               </button>
 
               <p v-if="submitError" class="form-error">
@@ -139,7 +138,7 @@
           
           <!-- Contact Information -->
           <div class="card">
-            <h2>Contact Informatie</h2>
+            <h2>Contactgegevens</h2>
             <p>Bereik ons via telefoon, e-mail of bezoek ons op kantoor.</p>
             
             <div class="contact-info">
@@ -247,7 +246,7 @@
           
           <div class="faq-item">
             <h3>Zijn de vrachtwagens verzekerd?</h3>
-            <p>Ja, alle onze vrachtwagens zijn volledig verzekerd. Wij bieden ook aanvullende verzekering voor uw goederen aan.</p>
+            <p>Ja, al onze vrachtwagens zijn volledig verzekerd. Wij bieden ook aanvullende verzekering voor uw goederen aan.</p>
           </div>
           
           <div class="faq-item">

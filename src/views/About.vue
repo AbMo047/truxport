@@ -4,7 +4,7 @@
     <section class="hero">
       <div class="container">
         <h1>Over Ons</h1>
-        <p>Al meer dan 15 jaar uw betrouwbare partner voor professioneel vrachtwagen transport</p>
+        <p>Al meer dan 15 jaar uw betrouwbare partner voor professioneel vrachtwagentransport</p>
       </div>
     </section>
 
@@ -53,7 +53,7 @@
             
             <div class="stat-card">
               <h3>500+</h3>
-              <p>Televreden Klanten</p>
+              <p>Tevreden Klanten</p>
             </div>
             
             <div class="stat-card">
@@ -177,35 +177,41 @@
           <p>Wij voldoen aan de hoogste standaarden in de transportsector</p>
         </div>
         
-        <div class="grid grid-3">
-          <div class="card text-center">
-            <h3>🏆 ISO 9001</h3>
-            <p>Kwaliteitsmanagementsysteem certificering voor consistente service en continue verbetering.</p>
+        <div class="cert-badges">
+          <div class="cert-badge">
+            <div class="cert-icon">🏆</div>
+            <div class="cert-name">ISO 9001</div>
+            <div class="cert-desc">Kwaliteitsmanagement</div>
           </div>
-          
-          <div class="card text-center">
-            <h3>🌱 ISO 14001</h3>
-            <p>Milieumanagementsysteem certificering voor duurzaam en milieuvriendelijk transport.</p>
+
+          <div class="cert-badge">
+            <div class="cert-icon">🌱</div>
+            <div class="cert-name">ISO 14001</div>
+            <div class="cert-desc">Milieumanagement</div>
           </div>
-          
-          <div class="card text-center">
-            <h3>⚠️ ADR 2023</h3>
-            <p>Certificering voor het vervoer van gevaarlijke stoffen volgens de nieuwste Europese normen.</p>
+
+          <div class="cert-badge">
+            <div class="cert-icon">⚠️</div>
+            <div class="cert-name">ADR 2023</div>
+            <div class="cert-desc">Gevaarlijke stoffen</div>
           </div>
-          
-          <div class="card text-center">
-            <h3>🛡️ VCA*</h3>
-            <p>Veiligheid, gezondheid en milieu certificering voor veilig werken in de transportsector.</p>
+
+          <div class="cert-badge">
+            <div class="cert-icon">🛡️</div>
+            <div class="cert-name">VCA*</div>
+            <div class="cert-desc">Veilig werken</div>
           </div>
-          
-          <div class="card text-center">
-            <h3>🚛 AETR</h3>
-            <p>Europese overeenkomst betreffende het werk van het rijdend personeel in het internationale wegvervoer.</p>
+
+          <div class="cert-badge">
+            <div class="cert-icon">🚛</div>
+            <div class="cert-name">AETR</div>
+            <div class="cert-desc">Rijdend personeel</div>
           </div>
-          
-          <div class="card text-center">
-            <h3>📋 ATP</h3>
-            <p>Overeenkomst voor het internationale vervoer van bederfelijke levensmiddelen en speciale transportmiddelen.</p>
+
+          <div class="cert-badge">
+            <div class="cert-icon">📋</div>
+            <div class="cert-name">ATP</div>
+            <div class="cert-desc">Bederfelijke goederen</div>
           </div>
         </div>
       </div>
@@ -238,6 +244,30 @@
               <li>De toekomst van transport vormgeeft</li>
             </ul>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sustainability Score -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="sustainability-box">
+          <div class="score-circle">8.2<span>/10</span></div>
+          <div>
+            <h3>TruxPort Duurzaamheidsscore</h3>
+            <p>Onze eigen duurzaamheidsscore, gebaseerd op vlootvernieuwing, brandstofverbruik en CO₂-uitstoot per rit. Elk jaar opnieuw gemeten en gepubliceerd, zodat u onze vooruitgang kunt volgen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Driver Recruitment -->
+    <section id="vacatures" class="section recruitment-section">
+      <div class="container">
+        <div class="recruitment-box">
+          <h2>Word Chauffeur bij TruxPort</h2>
+          <p>Wij zijn steeds op zoek naar ervaren en gemotiveerde chauffeurs om ons team te versterken. Modern materieel, vaste routes mogelijk en een team dat voor elkaar klaarstaat.</p>
+          <router-link to="/contact" class="btn btn-primary">Solliciteer Nu</router-link>
         </div>
       </div>
     </section>
@@ -416,6 +446,112 @@ import teamPiet from '../assets/images/team-piet.jpg'
 .timeline-content p {
   color: var(--text-muted);
   margin: 0;
+}
+
+.cert-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.cert-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 140px;
+  padding: 1.5rem 1rem;
+  background: white;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 2px solid var(--orange);
+  text-align: center;
+}
+
+.cert-icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.cert-name {
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 0.95rem;
+}
+
+.cert-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+.sustainability-box {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.score-circle {
+  flex-shrink: 0;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+  color: white;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.score-circle span {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-left: 0.15rem;
+}
+
+.sustainability-box h3 {
+  margin-bottom: 0.5rem;
+}
+
+.sustainability-box p {
+  margin-bottom: 0;
+}
+
+.recruitment-section {
+  background: var(--navy);
+}
+
+.recruitment-box {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.recruitment-box h2 {
+  color: white;
+}
+
+.recruitment-box p {
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+}
+
+@media (max-width: 768px) {
+  .sustainability-box {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 @media (max-width: 768px) {

@@ -84,6 +84,9 @@
       </div>
     </section>
 
+    <!-- Trust / Testimonials -->
+    <TrustSection />
+
     <!-- Stats Section -->
     <section class="section">
       <div class="container">
@@ -134,6 +137,7 @@
 
 <script setup lang="ts">
 import heroImage from '../assets/images/home-hero-highway.jpg'
+import TrustSection from '../components/TrustSection.vue'
 </script>
 
 <style scoped>
