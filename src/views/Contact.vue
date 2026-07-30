@@ -71,8 +71,14 @@
               </div>
               
               <div class="form-group">
-                <label for="service">Gewenste Dienst</label>
-                <select id="service" v-model="form.service">
+                <label for="service">Gewenste Dienst *</label>
+                <select
+                  id="service"
+                  v-model="form.service"
+                  :class="{ 'has-error': errors.service }"
+                  @blur="validateField('service')"
+                  @change="validateField('service')"
+                >
                   <option value="">Selecteer een dienst</option>
                   <option value="adr">ADR Transport</option>
                   <option value="express">Express Leveringen</option>
@@ -84,53 +90,65 @@
                   <option value="warehousing">Warehousing, Opslag en Overslag</option>
                   <option value="other">Anders</option>
                 </select>
+                <p v-if="errors.service" class="field-error">{{ errors.service }}</p>
               </div>
-              
+
               <div class="form-group">
-                <label for="from">Van (locatie)</label>
-                <input 
-                  type="text" 
-                  id="from" 
+                <label for="from">Van (locatie) *</label>
+                <input
+                  type="text"
+                  id="from"
                   v-model="form.from"
                   placeholder="Vertrekpunt"
+                  :class="{ 'has-error': errors.from }"
+                  @blur="validateField('from')"
                 >
+                <p v-if="errors.from" class="field-error">{{ errors.from }}</p>
               </div>
-              
+
               <div class="form-group">
-                <label for="to">Naar (locatie)</label>
-                <input 
-                  type="text" 
-                  id="to" 
+                <label for="to">Naar (locatie) *</label>
+                <input
+                  type="text"
+                  id="to"
                   v-model="form.to"
                   placeholder="Bestemming"
+                  :class="{ 'has-error': errors.to }"
+                  @blur="validateField('to')"
                 >
+                <p v-if="errors.to" class="field-error">{{ errors.to }}</p>
               </div>
-              
+
               <div class="form-group">
-                <label for="weight">Gewicht (kg)</label>
-                <input 
-                  type="number" 
-                  id="weight" 
+                <label for="weight">Gewicht (kg) *</label>
+                <input
+                  type="number"
+                  id="weight"
                   v-model="form.weight"
                   placeholder="Geschat gewicht"
+                  :class="{ 'has-error': errors.weight }"
+                  @blur="validateField('weight')"
                 >
+                <p v-if="errors.weight" class="field-error">{{ errors.weight }}</p>
               </div>
-              
+
               <div class="form-group">
-                <label for="date">Gewenste Datum</label>
-                <input 
-                  type="date" 
-                  id="date" 
+                <label for="date">Gewenste Datum *</label>
+                <input
+                  type="date"
+                  id="date"
                   v-model="form.date"
+                  :class="{ 'has-error': errors.date }"
+                  @blur="validateField('date')"
                 >
+                <p v-if="errors.date" class="field-error">{{ errors.date }}</p>
               </div>
-              
+
               <div class="form-group">
-                <label for="message">Bericht *</label>
-                <textarea 
-                  id="message" 
-                  v-model="form.message" 
-                  required
+                <label for="message">Bericht</label>
+                <textarea
+                  id="message"
+                  v-model="form.message"
                   placeholder="Beschrijf uw transportbehoefte..."
                 ></textarea>
               </div>
@@ -287,21 +305,28 @@ const form = reactive({
   message: ''
 })
 
-type ValidatedField = 'name' | 'email' | 'phone'
+type ValidatedField = 'name' | 'email' | 'phone' | 'service' | 'from' | 'to' | 'weight' | 'date'
+
+const REQUIRED_FIELDS: ValidatedField[] = ['name', 'email', 'phone', 'service', 'from', 'to', 'weight', 'date']
 
 const errors = reactive<Record<ValidatedField, string>>({
   name: '',
   email: '',
-  phone: ''
+  phone: '',
+  service: '',
+  from: '',
+  to: '',
+  weight: '',
+  date: ''
 })
 
-const patterns: Record<ValidatedField, RegExp> = {
+const patterns: Partial<Record<ValidatedField, RegExp>> = {
   name: /^[^\d]+$/,
   email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
   phone: /^\+?[\d\s()-]{8,}$/
 }
 
-const errorMessages: Record<ValidatedField, string> = {
+const errorMessages: Partial<Record<ValidatedField, string>> = {
   name: 'Naam mag geen cijfers bevatten.',
   email: 'Vul een geldig e-mailadres in.',
   phone: 'Vul een geldig telefoonnummer in.'
@@ -315,8 +340,9 @@ const validateField = (field: ValidatedField): boolean => {
     return false
   }
 
-  if (!patterns[field].test(value)) {
-    errors[field] = errorMessages[field]
+  const pattern = patterns[field]
+  if (pattern && !pattern.test(value)) {
+    errors[field] = errorMessages[field] ?? 'Ongeldige waarde.'
     return false
   }
 
@@ -325,10 +351,7 @@ const validateField = (field: ValidatedField): boolean => {
 }
 
 const validateForm = (): boolean => {
-  const nameValid = validateField('name')
-  const emailValid = validateField('email')
-  const phoneValid = validateField('phone')
-  return nameValid && emailValid && phoneValid
+  return REQUIRED_FIELDS.map(validateField).every(Boolean)
 }
 
 const submitForm = async () => {
@@ -383,12 +406,16 @@ const submitForm = async () => {
   color: #dc3545;
 }
 
-.form-group input.has-error {
+.form-group input.has-error,
+.form-group select.has-error,
+.form-group textarea.has-error {
   border-color: #dc3545;
   background: #fff5f5;
 }
 
-.form-group input.has-error:focus {
+.form-group input.has-error:focus,
+.form-group select.has-error:focus,
+.form-group textarea.has-error:focus {
   border-color: #dc3545;
   box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.15);
 }
