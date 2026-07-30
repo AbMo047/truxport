@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash('/Applications/Brave Browser.app/Contents/MacOS/Brave Browser' --headless=new --disable-gpu --no-sandbox --screenshot=/private/tmp/claude-501/-Users-abmo-Desktop-TruckDriver/5b96c3b8-ba86-40f8-b18d-89958652f90e/scratchpad/screenshots/form-validation4.png --window-size=920,1300 --virtual-time-budget=8000 http://localhost:5183/__test-validation.html)"
+    ]
+  }
+}

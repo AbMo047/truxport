@@ -17,48 +17,57 @@
             <h2>Offerte Aanvragen</h2>
             <p>Vul het formulier in en wij nemen zo snel mogelijk contact met u op.</p>
             
-            <form @submit.prevent="submitForm" class="contact-form">
+            <form @submit.prevent="submitForm" class="contact-form" novalidate>
               <div class="form-group">
                 <label for="name">Naam *</label>
-                <input 
-                  type="text" 
-                  id="name" 
-                  v-model="form.name" 
+                <input
+                  type="text"
+                  id="name"
+                  v-model="form.name"
                   required
                   placeholder="Uw volledige naam"
+                  :class="{ 'has-error': errors.name }"
+                  @blur="validateField('name')"
                 >
+                <p v-if="errors.name" class="field-error">{{ errors.name }}</p>
               </div>
-              
+
               <div class="form-group">
                 <label for="company">Bedrijf</label>
-                <input 
-                  type="text" 
-                  id="company" 
+                <input
+                  type="text"
+                  id="company"
                   v-model="form.company"
                   placeholder="Bedrijfsnaam (optioneel)"
                 >
               </div>
-              
+
               <div class="form-group">
                 <label for="email">E-mail *</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  v-model="form.email" 
+                <input
+                  type="email"
+                  id="email"
+                  v-model="form.email"
                   required
                   placeholder="uw.email@bedrijf.be"
+                  :class="{ 'has-error': errors.email }"
+                  @blur="validateField('email')"
                 >
+                <p v-if="errors.email" class="field-error">{{ errors.email }}</p>
               </div>
-              
+
               <div class="form-group">
                 <label for="phone">Telefoon *</label>
-                <input 
-                  type="tel" 
-                  id="phone" 
-                  v-model="form.phone" 
+                <input
+                  type="tel"
+                  id="phone"
+                  v-model="form.phone"
                   required
                   placeholder="+32 470 12 34 56"
+                  :class="{ 'has-error': errors.phone }"
+                  @blur="validateField('phone')"
                 >
+                <p v-if="errors.phone" class="field-error">{{ errors.phone }}</p>
               </div>
               
               <div class="form-group">
@@ -278,7 +287,55 @@ const form = reactive({
   message: ''
 })
 
+type ValidatedField = 'name' | 'email' | 'phone'
+
+const errors = reactive<Record<ValidatedField, string>>({
+  name: '',
+  email: '',
+  phone: ''
+})
+
+const patterns: Record<ValidatedField, RegExp> = {
+  name: /^[^\d]+$/,
+  email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+  phone: /^\+?[\d\s()-]{8,}$/
+}
+
+const errorMessages: Record<ValidatedField, string> = {
+  name: 'Naam mag geen cijfers bevatten.',
+  email: 'Vul een geldig e-mailadres in.',
+  phone: 'Vul een geldig telefoonnummer in.'
+}
+
+const validateField = (field: ValidatedField): boolean => {
+  const value = form[field].trim()
+
+  if (!value) {
+    errors[field] = 'Dit veld is verplicht.'
+    return false
+  }
+
+  if (!patterns[field].test(value)) {
+    errors[field] = errorMessages[field]
+    return false
+  }
+
+  errors[field] = ''
+  return true
+}
+
+const validateForm = (): boolean => {
+  const nameValid = validateField('name')
+  const emailValid = validateField('email')
+  const phoneValid = validateField('phone')
+  return nameValid && emailValid && phoneValid
+}
+
 const submitForm = async () => {
+  if (!validateForm()) {
+    return
+  }
+
   isSubmitting.value = true
   submitError.value = false
 
@@ -323,6 +380,23 @@ const submitForm = async () => {
 .form-error {
   margin-top: 1rem;
   margin-bottom: 0;
+  color: #dc3545;
+}
+
+.form-group input.has-error {
+  border-color: #dc3545;
+  background: #fff5f5;
+}
+
+.form-group input.has-error:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.15);
+}
+
+.field-error {
+  margin-top: 0.4rem;
+  margin-bottom: 0;
+  font-size: 0.85rem;
   color: #dc3545;
 }
 
