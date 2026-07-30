@@ -179,38 +179,50 @@
         
         <div class="cert-badges">
           <div class="cert-badge">
-            <div class="cert-icon">🏆</div>
-            <div class="cert-name">ISO 9001</div>
+            <div class="cert-circle">
+              <div class="cert-icon">🏆</div>
+              <div class="cert-name">ISO 9001</div>
+            </div>
             <div class="cert-desc">Kwaliteitsmanagement</div>
           </div>
 
           <div class="cert-badge">
-            <div class="cert-icon">🌱</div>
-            <div class="cert-name">ISO 14001</div>
+            <div class="cert-circle">
+              <div class="cert-icon">🌱</div>
+              <div class="cert-name">ISO 14001</div>
+            </div>
             <div class="cert-desc">Milieumanagement</div>
           </div>
 
           <div class="cert-badge">
-            <div class="cert-icon">⚠️</div>
-            <div class="cert-name">ADR 2023</div>
+            <div class="cert-circle">
+              <div class="cert-icon">⚠️</div>
+              <div class="cert-name">ADR 2023</div>
+            </div>
             <div class="cert-desc">Gevaarlijke stoffen</div>
           </div>
 
           <div class="cert-badge">
-            <div class="cert-icon">🛡️</div>
-            <div class="cert-name">VCA*</div>
+            <div class="cert-circle">
+              <div class="cert-icon">🛡️</div>
+              <div class="cert-name">VCA*</div>
+            </div>
             <div class="cert-desc">Veilig werken</div>
           </div>
 
           <div class="cert-badge">
-            <div class="cert-icon">🚛</div>
-            <div class="cert-name">AETR</div>
+            <div class="cert-circle">
+              <div class="cert-icon">🚛</div>
+              <div class="cert-name">AETR</div>
+            </div>
             <div class="cert-desc">Rijdend personeel</div>
           </div>
 
           <div class="cert-badge">
-            <div class="cert-icon">📋</div>
-            <div class="cert-name">ATP</div>
+            <div class="cert-circle">
+              <div class="cert-icon">📋</div>
+              <div class="cert-name">ATP</div>
+            </div>
             <div class="cert-desc">Bederfelijke goederen</div>
           </div>
         </div>
@@ -459,32 +471,39 @@ import teamPiet from '../assets/images/team-piet.jpg'
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 140px;
-  padding: 1.5rem 1rem;
-  background: white;
+  width: 130px;
+  text-align: center;
+}
+
+.cert-circle {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  aspect-ratio: 1;
-  justify-content: center;
+  background: white;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   border: 2px solid var(--orange);
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
 }
 
 .cert-icon {
   font-size: 1.8rem;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.3rem;
 }
 
 .cert-name {
   font-weight: 700;
   color: var(--navy);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .cert-desc {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
-  margin-top: 0.2rem;
 }
 
 .sustainability-box {
