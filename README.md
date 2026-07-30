@@ -54,8 +54,8 @@ npm run preview
 
 ### Development Server
 Na het starten van `npm run dev` is de website beschikbaar op:
-- **Lokaal:** http://localhost:3000
-- **Netwerk:** http://[jouw-ip]:3000
+- **Lokaal:** http://localhost:5173
+- **Netwerk:** http://[jouw-ip]:5173
 
 ## 📱 Responsive Design
 
@@ -76,9 +76,9 @@ De website is volledig responsive en geoptimaliseerd voor:
 ## 📞 Contact Informatie
 
 Voor vragen over dit project of de website, neem contact op via:
-- **E-mail:** info@truxport.nl
-- **Telefoon:** +31 123 456 789
-- **Adres:** Transportweg 123, 1234 AB Amsterdam
+- **E-mail:** info@truxport.be
+- **Telefoon:** +32 3 456 78 90
+- **Adres:** Noorderlaan 123, 2030 Antwerpen, België
 
 ## 📄 Licentie
 
