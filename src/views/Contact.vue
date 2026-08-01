@@ -431,6 +431,7 @@ const submitForm = async () => {
   flex: 0 0 auto;
   width: 122px;
   min-width: 122px;
+  padding-left: 0.5rem;
   padding-right: 1.75rem;
 }
 
