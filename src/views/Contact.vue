@@ -429,8 +429,9 @@ const submitForm = async () => {
 
 .phone-country-select {
   flex: 0 0 auto;
-  width: 105px;
-  min-width: 105px;
+  width: 122px;
+  min-width: 122px;
+  padding-right: 1.75rem;
 }
 
 .phone-group input {
