@@ -5,7 +5,15 @@
       "Bash('/Applications/Brave Browser.app/Contents/MacOS/Brave Browser' --headless=new --disable-gpu --no-sandbox --screenshot=/private/tmp/claude-501/-Users-abmo-Desktop-TruckDriver/5b96c3b8-ba86-40f8-b18d-89958652f90e/scratchpad/screenshots/cert-badges-zoom.png --window-size=1220,920 --virtual-time-budget=6000 http://localhost:5183/__test-badges.html)",
       "Bash('/Applications/Brave Browser.app/Contents/MacOS/Brave Browser' --headless=new --disable-gpu --no-sandbox --screenshot=/private/tmp/claude-501/-Users-abmo-Desktop-TruckDriver/5b96c3b8-ba86-40f8-b18d-89958652f90e/scratchpad/screenshots/cert-badges-close.png --window-size=500,500 --virtual-time-budget=6000 http://localhost:5183/__test-badges.html)",
       "Bash('/Applications/Brave Browser.app/Contents/MacOS/Brave Browser' --headless=new --disable-gpu --no-sandbox --screenshot=/private/tmp/claude-501/-Users-abmo-Desktop-TruckDriver/5b96c3b8-ba86-40f8-b18d-89958652f90e/scratchpad/screenshots/cert-fixed.png --window-size=1220,700 --virtual-time-budget=6000 http://localhost:5183/__test-badges.html)",
-      "Bash('/Applications/Brave Browser.app/Contents/MacOS/Brave Browser' --headless=new --disable-gpu --no-sandbox --screenshot=/private/tmp/claude-501/-Users-abmo-Desktop-TruckDriver/5b96c3b8-ba86-40f8-b18d-89958652f90e/scratchpad/screenshots/required-test2.png --window-size=920,1200 --virtual-time-budget=8000 http://localhost:5183/__test-required.html)"
+      "Bash('/Applications/Brave Browser.app/Contents/MacOS/Brave Browser' --headless=new --disable-gpu --no-sandbox --screenshot=/private/tmp/claude-501/-Users-abmo-Desktop-TruckDriver/5b96c3b8-ba86-40f8-b18d-89958652f90e/scratchpad/screenshots/required-test2.png --window-size=920,1200 --virtual-time-budget=8000 http://localhost:5183/__test-required.html)",
+      "Bash(npx --yes netlify-cli --help)",
+      "Bash(npx --yes netlify-cli sites --help)",
+      "Bash(npx --yes netlify-cli api updateSite --data '{\"site_id\": \"4145f6b6-d4bf-4a0a-9df6-b87351e63a44\", \"body\": {\"name\": \"truxport\"}}')",
+      "Bash(curl -s -o /dev/null -w \"truxport.netlify.app: %{http_code}\\\\n\" https://truxport.netlify.app/)",
+      "Bash(curl -s -o /dev/null -w \"oude link nog geldig: %{http_code}\\\\n\" https://calm-meerkat-01f500.netlify.app/)",
+      "WebFetch(domain:en.wikipedia.org)",
+      "Bash('/Applications/Brave Browser.app/Contents/MacOS/Brave Browser' --headless=new --disable-gpu --no-sandbox --screenshot=/private/tmp/claude-501/-Users-abmo-Desktop-TruckDriver/5b96c3b8-ba86-40f8-b18d-89958652f90e/scratchpad/screenshots/phone-country.png --window-size=900,700 --virtual-time-budget=5000 http://localhost:5183/contact)",
+      "Bash('/Applications/Brave Browser.app/Contents/MacOS/Brave Browser' --headless=new --disable-gpu --no-sandbox --screenshot=/private/tmp/claude-501/-Users-abmo-Desktop-TruckDriver/5b96c3b8-ba86-40f8-b18d-89958652f90e/scratchpad/screenshots/phone-country2.png --window-size=900,1200 --virtual-time-budget=5000 http://localhost:5183/contact)"
     ]
   }
 }

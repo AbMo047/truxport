@@ -58,15 +58,34 @@
 
               <div class="form-group">
                 <label for="phone">Telefoon *</label>
-                <input
-                  type="tel"
-                  id="phone"
-                  v-model="form.phone"
-                  required
-                  placeholder="+32 470 12 34 56"
-                  :class="{ 'has-error': errors.phone }"
-                  @blur="validateField('phone')"
-                >
+                <div class="phone-group">
+                  <select
+                    id="phone-country"
+                    v-model="phoneCountryCode"
+                    class="phone-country-select"
+                    aria-label="Landcode"
+                  >
+                    <optgroup label="Meest gebruikt">
+                      <option v-for="c in featuredCountryCodes" :key="'f-' + c.iso" :value="c.dial">
+                        {{ c.name }} ({{ c.dial }})
+                      </option>
+                    </optgroup>
+                    <optgroup label="Alle landen">
+                      <option v-for="c in allCountryCodes" :key="c.iso" :value="c.dial">
+                        {{ c.name }} ({{ c.dial }})
+                      </option>
+                    </optgroup>
+                  </select>
+                  <input
+                    type="tel"
+                    id="phone"
+                    v-model="form.phone"
+                    required
+                    placeholder="470 12 34 56"
+                    :class="{ 'has-error': errors.phone }"
+                    @blur="validateField('phone')"
+                  >
+                </div>
                 <p v-if="errors.phone" class="field-error">{{ errors.phone }}</p>
               </div>
               
@@ -288,9 +307,11 @@
 
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
+import { featuredCountryCodes, allCountryCodes } from '../data/countryCodes'
 
 const isSubmitting = ref(false)
 const submitError = ref(false)
+const phoneCountryCode = ref('+32')
 
 const form = reactive({
   name: '',
@@ -323,13 +344,13 @@ const errors = reactive<Record<ValidatedField, string>>({
 const patterns: Partial<Record<ValidatedField, RegExp>> = {
   name: /^[^\d]+$/,
   email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-  phone: /^\+?[\d\s()-]{8,}$/
+  phone: /^[\d\s()-]{4,}$/
 }
 
 const errorMessages: Partial<Record<ValidatedField, string>> = {
   name: 'Naam mag geen cijfers bevatten.',
   email: 'Vul een geldig e-mailadres in.',
-  phone: 'Vul een geldig telefoonnummer in.'
+  phone: 'Vul een geldig telefoonnummer in (kies eerst uw landcode).'
 }
 
 const validateField = (field: ValidatedField): boolean => {
@@ -373,7 +394,8 @@ const submitForm = async () => {
         access_key: import.meta.env.VITE_WEB3FORMS_KEY,
         subject: 'Nieuwe offerteaanvraag via truxport.be',
         from_name: form.name,
-        ...form
+        ...form,
+        phone: `${phoneCountryCode.value} ${form.phone}`
       })
     })
 
@@ -398,6 +420,32 @@ const submitForm = async () => {
 <style scoped>
 .contact-form {
   margin-top: 1rem;
+}
+
+.phone-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.phone-country-select {
+  flex: 0 0 auto;
+  width: 130px;
+  min-width: 130px;
+}
+
+.phone-group input {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 480px) {
+  .phone-group {
+    flex-direction: column;
+  }
+
+  .phone-country-select {
+    width: 100%;
+  }
 }
 
 .form-error {
