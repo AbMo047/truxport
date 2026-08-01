@@ -4,6 +4,14 @@ export interface CountryCode {
   dial: string
 }
 
+// Bouwt de vlag-emoji op uit de ISO-landcode (bv. "BE" -> 🇧🇪), zodat we niet
+// voor elk van de 223 landen handmatig een emoji hoeven te noteren.
+export function getFlagEmoji(iso: string): string {
+  return iso
+    .toUpperCase()
+    .replace(/./g, (char) => String.fromCodePoint(127397 + char.charCodeAt(0)))
+}
+
 // Meest gebruikte landen voor TruxPort (België + buurlanden), bovenaan de keuzelijst
 export const featuredCountryCodes: CountryCode[] = [
   { name: 'België', iso: 'BE', dial: '+32' },

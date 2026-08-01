@@ -66,13 +66,13 @@
                     aria-label="Landcode"
                   >
                     <optgroup label="Meest gebruikt">
-                      <option v-for="c in featuredCountryCodes" :key="'f-' + c.iso" :value="c.dial">
-                        {{ c.name }} ({{ c.dial }})
+                      <option v-for="c in featuredCountryCodes" :key="'f-' + c.iso" :value="c.dial" :title="c.name">
+                        {{ getFlagEmoji(c.iso) }} {{ c.iso }} {{ c.dial }}
                       </option>
                     </optgroup>
                     <optgroup label="Alle landen">
-                      <option v-for="c in allCountryCodes" :key="c.iso" :value="c.dial">
-                        {{ c.name }} ({{ c.dial }})
+                      <option v-for="c in allCountryCodes" :key="c.iso" :value="c.dial" :title="c.name">
+                        {{ getFlagEmoji(c.iso) }} {{ c.iso }} {{ c.dial }}
                       </option>
                     </optgroup>
                   </select>
@@ -307,7 +307,7 @@
 
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
-import { featuredCountryCodes, allCountryCodes } from '../data/countryCodes'
+import { featuredCountryCodes, allCountryCodes, getFlagEmoji } from '../data/countryCodes'
 
 const isSubmitting = ref(false)
 const submitError = ref(false)
@@ -429,8 +429,8 @@ const submitForm = async () => {
 
 .phone-country-select {
   flex: 0 0 auto;
-  width: 130px;
-  min-width: 130px;
+  width: 105px;
+  min-width: 105px;
 }
 
 .phone-group input {
