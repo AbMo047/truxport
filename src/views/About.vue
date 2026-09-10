@@ -298,10 +298,10 @@
 </template>
 
 <script setup lang="ts">
-import warehouseImage from '../assets/images/about-warehouse.jpg'
-import teamJan from '../assets/images/team-jan.jpg'
-import teamMaria from '../assets/images/team-maria.jpg'
-import teamPiet from '../assets/images/team-piet.jpg'
+import warehouseImage from '../assets/images/about-warehouse.webp'
+import teamJan from '../assets/images/team-jan.webp'
+import teamMaria from '../assets/images/team-maria.webp'
+import teamPiet from '../assets/images/team-piet.webp'
 </script>
 
 <style scoped>

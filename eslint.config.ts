@@ -44,4 +44,13 @@ export default defineConfig([
       "vue/multi-word-component-names": "off",
     },
   },
+
+  {
+    files: ["scripts/**/*.mjs"],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+    },
+  },
 ]);
