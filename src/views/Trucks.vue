@@ -371,7 +371,7 @@
 </template>
 
 <script setup lang="ts">
-import heroImage from '../assets/images/trucks-hero.jpg'
+import heroImage from '../assets/images/trucks-hero.webp'
 </script>
 
 <style scoped>

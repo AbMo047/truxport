@@ -136,7 +136,7 @@
 </template>
 
 <script setup lang="ts">
-import heroImage from '../assets/images/home-hero-highway.jpg'
+import heroImage from '../assets/images/home-hero-highway.webp'
 import TrustSection from '../components/TrustSection.vue'
 </script>
 

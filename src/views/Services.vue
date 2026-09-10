@@ -19,7 +19,6 @@
         <div class="services-grid">
           <div class="card">
             <h3>ADR Transport</h3>
-            <StarRating :rating="4.9" :count="86" />
             <p>Veilig en betrouwbaar ADR transport voor gevaarlijke goederen,
               nationaal en internationaal, volgens de geldende ADR voorschriften.
             </p>
@@ -40,7 +39,6 @@
           
           <div class="card">
             <h3>Express Leveringen</h3>
-            <StarRating :rating="4.7" :count="134" />
             <p>Snelle en betrouwbare expressleveringen voor dringende zendingen in België
               en Europa, met een oplossing op maat van uw planning en bestemming.</p>
             <ul style="margin: 1rem 0; padding-left: 1.5rem;">
@@ -57,7 +55,6 @@
           
           <div class="card">
             <h3>Sneltransport</h3>
-            <StarRating :rating="4.8" :count="97" />
             <p>Direct en betrouwbaar sneltransport voor dringende zendingen in België en Europa.
               Uw goederen worden zo snel mogelijk opgehaald en rechtstreeks naar de bestemming vervoerd.</p>
               <ul style="margin: 1rem 0; padding-left: 1.5rem;">
@@ -74,7 +71,6 @@
           
           <div class="card">
             <h3>Internationaal Transport</h3>
-            <StarRating :rating="4.6" :count="112" />
             <p>Betrouwbaar internationaal transport van goederen vanuit België naar bestemmingen
               in heel Europa, met duidelijke communicatie en een zorgvuldige opvolging.
             </p>
@@ -92,7 +88,6 @@
           
           <div class="card">
             <h3>Bevoorrading van Schepen</h3>
-            <StarRating :rating="4.9" :count="41" />
             <p>Snelle en betrouwbare bevoorrading van schepen met goederen, materialen en benodigdheden, volledig afgestemd op het vaarschema en de planning in de haven.</p>
             <ul style="margin: 1rem 0; padding-left: 1.5rem;">
               <li>Tijdige levering van goederen en benodigdheden aan schepen</li>
@@ -107,7 +102,6 @@
           
           <div class="card">
             <h3>Palletvervoer</h3>
-            <StarRating :rating="4.7" :count="168" />
             <p>Betrouwbaar palletvervoer voor kleine en grote palletzendingen in België en Europa, met een veilige ophaling en tijdige levering op de gewenste bestemming.</p>
             <ul style="margin: 1rem 0; padding-left: 1.5rem;">
               <li>Transport van europallets en industriepallets</li>
@@ -123,7 +117,6 @@
           
           <div class="card">
             <h3>Volumetransport</h3>
-            <StarRating :rating="4.5" :count="73" />
             <p>Efficiënt volumetransport voor lichte, grote en ruimte innemende goederen in België en Europa, met maximale benutting van de beschikbare laadruimte.
             </p>
             <ul style="margin: 1rem 0; padding-left: 1.5rem;">
@@ -140,7 +133,6 @@
           
           <div class="card">
             <h3>Warehousing, Opslag en Overslag</h3>
-            <StarRating :rating="4.8" :count="59" />
             <p>
               Flexibele warehousing, veilige opslag en efficiënte overslag van goederen,
               afgestemd op uw voorraad, planning en verdere distributie.
@@ -273,8 +265,7 @@
 
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
-import heroImage from '../assets/images/services-hero.jpg'
-import StarRating from '../components/StarRating.vue'
+import heroImage from '../assets/images/services-hero.webp'
 </script>
 
 <style scoped>
