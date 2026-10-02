@@ -16,146 +16,48 @@
           <p>Gespecialiseerde transportoplossingen voor elke behoefte</p>
         </div>
         
-        <div class="services-grid">
-          <div class="card">
-            <h3>ADR Transport</h3>
-            <StarRating :rating="4.9" :count="86" />
-            <p>Veilig en betrouwbaar ADR transport voor gevaarlijke goederen,
-              nationaal en internationaal, volgens de geldende ADR voorschriften.
-            </p>
+        <div class="services-slider">
+          <button
+            class="slider-arrow slider-prev"
+            type="button"
+            aria-label="Vorige dienst"
+            :disabled="activeIndex === 0"
+            @click="scrollBy(-1)"
+          >&#8249;</button>
 
-            <ul style="margin: 1rem 0; padding-left: 1.5rem;">
-              <li>Nationaal en internationaal vervoer van gevaarlijke goederen</li>
-              <li>Transport volgens de geldende ADR regelgeving</li>
-              <li>Correcte behandeling en beveiliging van uw lading</li>
-              <li>Ondersteuning bij transportdocumentatie en etikettering</li>
-              <li>Duidelijke opvolging van ophaling tot levering</li>
-            </ul>
-            <div class="service-price">
-                <strong>
-                  Prijs op aanvraag
-                </strong>
-            </div>
-          </div>
-          
-          <div class="card">
-            <h3>Express Leveringen</h3>
-            <StarRating :rating="4.7" :count="134" />
-            <p>Snelle en betrouwbare expressleveringen voor dringende zendingen in België
-              en Europa, met een oplossing op maat van uw planning en bestemming.</p>
-            <ul style="margin: 1rem 0; padding-left: 1.5rem;">
-              <li>Snelle ophaling en levering van dringende zendingen</li>
-              <li>Nationale en internationale expressleveringen</li>
-              <li>Same day en next day levering mogelijk</li>
-              <li>Rechtstreekse levering van deur tot deur</li>
-              <li>Duidelijke opvolging van ophaling tot bestemming</li>
-            </ul>
-            <div class="service-price">
-              <strong>Prijs op aanvraag</strong>
-            </div>
-          </div>
-          
-          <div class="card">
-            <h3>Sneltransport</h3>
-            <StarRating :rating="4.8" :count="97" />
-            <p>Direct en betrouwbaar sneltransport voor dringende zendingen in België en Europa.
-              Uw goederen worden zo snel mogelijk opgehaald en rechtstreeks naar de bestemming vervoerd.</p>
-              <ul style="margin: 1rem 0; padding-left: 1.5rem;">
-                <li>Onmiddellijke ophaling van dringende zendingen</li>
-                <li>Rechtstreeks transport zonder onnodige tussenstops</li>
-                <li>Nationaal en internationaal spoedtransport</li>
-                <li>Een voertuig exclusief voor uw zending</li>
-                <li>Duidelijke opvolging van ophaling tot levering</li>
+          <div ref="track" class="services-track" @scroll.passive="onScroll">
+            <div v-for="service in services" :key="service.title" class="card service-slide">
+              <h3>{{ service.title }}</h3>
+              <StarRating :rating="service.rating" :count="service.count" />
+              <p>{{ service.description }}</p>
+              <ul class="service-list">
+                <li v-for="item in service.items" :key="item">{{ item }}</li>
               </ul>
-            <div class="service-price">
-              <strong>Prijs op aanvraag</strong>
+              <div class="service-price">
+                <strong>Prijs op aanvraag</strong>
+              </div>
             </div>
           </div>
-          
-          <div class="card">
-            <h3>Internationaal Transport</h3>
-            <StarRating :rating="4.6" :count="112" />
-            <p>Betrouwbaar internationaal transport van goederen vanuit België naar bestemmingen
-              in heel Europa, met duidelijke communicatie en een zorgvuldige opvolging.
-            </p>
-            <ul style="margin: 1rem 0; padding-left: 1.5rem;">
-              <li>Goederenvervoer vanuit België naar Europese bestemmingen</li>
-              <li>Deelladingen en volledige ladingen mogelijk</li>
-              <li>Transport van pallets, goederen en volumeladingen</li>
-              <li>Rechtstreekse levering van afzender tot bestemming</li>
-              <li>Duidelijke opvolging tijdens het volledige transporttraject</li>
-            </ul>
-            <div class="service-price">
-              <strong>Prijs op aanvraag</strong>
-            </div>
-          </div>
-          
-          <div class="card">
-            <h3>Bevoorrading van Schepen</h3>
-            <StarRating :rating="4.9" :count="41" />
-            <p>Snelle en betrouwbare bevoorrading van schepen met goederen, materialen en benodigdheden, volledig afgestemd op het vaarschema en de planning in de haven.</p>
-            <ul style="margin: 1rem 0; padding-left: 1.5rem;">
-              <li>Tijdige levering van goederen en benodigdheden aan schepen</li>
-              <li>Spoedleveringen voor dringende scheepsbevoorrading</li>
-              <li>Ophaling bij leveranciers en levering tot aan de haven</li>
-              <li>Duidelijke communicatie tijdens het volledige leveringstraject</li>
-            </ul>
-            <div class="service-price">
-              <strong>Prijs op aanvraag</strong>
-            </div>
-          </div>
-          
-          <div class="card">
-            <h3>Palletvervoer</h3>
-            <StarRating :rating="4.7" :count="168" />
-            <p>Betrouwbaar palletvervoer voor kleine en grote palletzendingen in België en Europa, met een veilige ophaling en tijdige levering op de gewenste bestemming.</p>
-            <ul style="margin: 1rem 0; padding-left: 1.5rem;">
-              <li>Transport van europallets en industriepallets</li>
-              <li>Vervoer van één pallet tot meerdere palletzendingen</li>
-              <li>Nationaal en internationaal pallettransport</li>
-              <li>Deelladingen en volledige ladingen mogelijk</li>
-              <li>Duidelijke opvolging van ophaling tot levering</li>
-            </ul>
-            <div class="service-price">
-              <strong>Prijs op aanvraag</strong>
-            </div>
-          </div>
-          
-          <div class="card">
-            <h3>Volumetransport</h3>
-            <StarRating :rating="4.5" :count="73" />
-            <p>Efficiënt volumetransport voor lichte, grote en ruimte innemende goederen in België en Europa, met maximale benutting van de beschikbare laadruimte.
-            </p>
-            <ul style="margin: 1rem 0; padding-left: 1.5rem;">
-              <li>Vervoer van lichte en volumineuze goederen</li>
-              <li>Geschikt voor meubels, verpakkingen, textiel en isolatiematerialen</li>
-              <li>Nationaal en internationaal volumetransport</li>
-              <li>Flexibele oplossingen voor deelvrachten en volledige ladingen</li>
-              <li>Zorgvuldige ophaling en levering op de gewenste bestemming</li>
-            </ul>
-            <div class="service-price">
-              <strong>Prijs op aanvraag</strong>
-            </div>
-          </div>
-          
-          <div class="card">
-            <h3>Warehousing, Opslag en Overslag</h3>
-            <StarRating :rating="4.8" :count="59" />
-            <p>
-              Flexibele warehousing, veilige opslag en efficiënte overslag van goederen,
-              afgestemd op uw voorraad, planning en verdere distributie.
-            </p>
-          <ul class="service-list">
-            <li>Tijdelijke en langdurige opslag van goederen</li>
-            <li>Veilige ontvangst, verwerking en bewaring</li>
-            <li>Professioneel laden en lossen van zendingen</li>
-            <li>Overslag tussen voertuigen voor verder transport</li>
-            <li>Combinatie met nationaal en internationaal transport</li>
-          </ul>
-        <div class="service-price">
-        <strong>Prijs op aanvraag</strong>
+
+          <button
+            class="slider-arrow slider-next"
+            type="button"
+            aria-label="Volgende dienst"
+            :disabled="activeIndex >= services.length - visibleCount"
+            @click="scrollBy(1)"
+          >&#8250;</button>
         </div>
-        </div>
+
+        <div class="slider-dots">
+          <button
+            v-for="(service, i) in services"
+            :key="service.title"
+            type="button"
+            class="slider-dot"
+            :class="{ active: i >= activeIndex && i < activeIndex + visibleCount }"
+            :aria-label="`Ga naar ${service.title}`"
+            @click="scrollTo(i)"
+          ></button>
         </div>
       </div>
     </section>
@@ -272,9 +174,160 @@
 </template>
 
 <script setup lang="ts">
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import heroImage from '../assets/images/services-hero.jpg'
 import StarRating from '../components/StarRating.vue'
+
+const services = [
+  {
+    title: 'ADR Transport',
+    rating: 4.9,
+    count: 86,
+    description: 'Veilig en betrouwbaar ADR transport voor gevaarlijke goederen, nationaal en internationaal, volgens de geldende ADR voorschriften.',
+    items: [
+      'Nationaal en internationaal vervoer van gevaarlijke goederen',
+      'Transport volgens de geldende ADR regelgeving',
+      'Correcte behandeling en beveiliging van uw lading',
+      'Ondersteuning bij transportdocumentatie en etikettering',
+      'Duidelijke opvolging van ophaling tot levering'
+    ]
+  },
+  {
+    title: 'Express Leveringen',
+    rating: 4.7,
+    count: 134,
+    description: 'Snelle en betrouwbare expressleveringen voor dringende zendingen in België en Europa, met een oplossing op maat van uw planning en bestemming.',
+    items: [
+      'Snelle ophaling en levering van dringende zendingen',
+      'Nationale en internationale expressleveringen',
+      'Same day en next day levering mogelijk',
+      'Rechtstreekse levering van deur tot deur',
+      'Duidelijke opvolging van ophaling tot bestemming'
+    ]
+  },
+  {
+    title: 'Sneltransport',
+    rating: 4.8,
+    count: 97,
+    description: 'Direct en betrouwbaar sneltransport voor dringende zendingen in België en Europa. Uw goederen worden zo snel mogelijk opgehaald en rechtstreeks naar de bestemming vervoerd.',
+    items: [
+      'Onmiddellijke ophaling van dringende zendingen',
+      'Rechtstreeks transport zonder onnodige tussenstops',
+      'Nationaal en internationaal spoedtransport',
+      'Een voertuig exclusief voor uw zending',
+      'Duidelijke opvolging van ophaling tot levering'
+    ]
+  },
+  {
+    title: 'Internationaal Transport',
+    rating: 4.6,
+    count: 112,
+    description: 'Betrouwbaar internationaal transport van goederen vanuit België naar bestemmingen in heel Europa, met duidelijke communicatie en een zorgvuldige opvolging.',
+    items: [
+      'Goederenvervoer vanuit België naar Europese bestemmingen',
+      'Deelladingen en volledige ladingen mogelijk',
+      'Transport van pallets, goederen en volumeladingen',
+      'Rechtstreekse levering van afzender tot bestemming',
+      'Duidelijke opvolging tijdens het volledige transporttraject'
+    ]
+  },
+  {
+    title: 'Bevoorrading van Schepen',
+    rating: 4.9,
+    count: 41,
+    description: 'Snelle en betrouwbare bevoorrading van schepen met goederen, materialen en benodigdheden, volledig afgestemd op het vaarschema en de planning in de haven.',
+    items: [
+      'Tijdige levering van goederen en benodigdheden aan schepen',
+      'Spoedleveringen voor dringende scheepsbevoorrading',
+      'Ophaling bij leveranciers en levering tot aan de haven',
+      'Duidelijke communicatie tijdens het volledige leveringstraject'
+    ]
+  },
+  {
+    title: 'Palletvervoer',
+    rating: 4.7,
+    count: 168,
+    description: 'Betrouwbaar palletvervoer voor kleine en grote palletzendingen in België en Europa, met een veilige ophaling en tijdige levering op de gewenste bestemming.',
+    items: [
+      'Transport van europallets en industriepallets',
+      'Vervoer van één pallet tot meerdere palletzendingen',
+      'Nationaal en internationaal pallettransport',
+      'Deelladingen en volledige ladingen mogelijk',
+      'Duidelijke opvolging van ophaling tot levering'
+    ]
+  },
+  {
+    title: 'Volumetransport',
+    rating: 4.5,
+    count: 73,
+    description: 'Efficiënt volumetransport voor lichte, grote en ruimte innemende goederen in België en Europa, met maximale benutting van de beschikbare laadruimte.',
+    items: [
+      'Vervoer van lichte en volumineuze goederen',
+      'Geschikt voor meubels, verpakkingen, textiel en isolatiematerialen',
+      'Nationaal en internationaal volumetransport',
+      'Flexibele oplossingen voor deelvrachten en volledige ladingen',
+      'Zorgvuldige ophaling en levering op de gewenste bestemming'
+    ]
+  },
+  {
+    title: 'Warehousing, Opslag en Overslag',
+    rating: 4.8,
+    count: 59,
+    description: 'Flexibele warehousing, veilige opslag en efficiënte overslag van goederen, afgestemd op uw voorraad, planning en verdere distributie.',
+    items: [
+      'Tijdelijke en langdurige opslag van goederen',
+      'Veilige ontvangst, verwerking en bewaring',
+      'Professioneel laden en lossen van zendingen',
+      'Overslag tussen voertuigen voor verder transport',
+      'Combinatie met nationaal en internationaal transport'
+    ]
+  }
+]
+
+const track = ref<HTMLElement | null>(null)
+const activeIndex = ref(0)
+const visibleCount = ref(1)
+
+function slideWidth() {
+  const el = track.value
+  const first = el?.children[0] as HTMLElement | undefined
+  if (!el || !first) return 0
+  const gap = parseFloat(getComputedStyle(el).columnGap) || 0
+  return first.offsetWidth + gap
+}
+
+function onScroll() {
+  const el = track.value
+  const width = slideWidth()
+  if (!el || !width) return
+  activeIndex.value = Math.round(el.scrollLeft / width)
+}
+
+function updateVisibleCount() {
+  const el = track.value
+  const width = slideWidth()
+  if (!el || !width) return
+  visibleCount.value = Math.max(1, Math.round(el.clientWidth / width))
+  onScroll()
+}
+
+function scrollTo(index: number) {
+  track.value?.scrollTo({ left: index * slideWidth(), behavior: 'smooth' })
+}
+
+function scrollBy(direction: number) {
+  scrollTo(activeIndex.value + direction)
+}
+
+onMounted(() => {
+  updateVisibleCount()
+  window.addEventListener('resize', updateVisibleCount)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', updateVisibleCount)
+})
 </script>
 
 <style scoped>
@@ -286,6 +339,124 @@ import StarRating from '../components/StarRating.vue'
   margin-top: 1rem;
   color: var(--orange-dark);
   font-weight: bold;
+}
+
+.services-slider {
+  position: relative;
+}
+
+.services-track {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 0.5rem 0.25rem 1.5rem;
+  scrollbar-width: none;
+}
+
+.services-track::-webkit-scrollbar {
+  display: none;
+}
+
+.service-slide {
+  flex: 0 0 calc((100% - 3rem) / 3);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-slide .service-price {
+  margin-top: auto;
+}
+
+.service-list {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--navy);
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(15, 41, 66, 0.12);
+  transition: background 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+
+.slider-arrow:hover:not(:disabled) {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: var(--white);
+}
+
+.slider-arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.slider-prev {
+  left: -24px;
+}
+
+.slider-next {
+  right: -24px;
+}
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--border);
+  cursor: pointer;
+  transition: background 0.2s ease, width 0.2s ease;
+}
+
+.slider-dot.active {
+  background: var(--orange);
+}
+
+@media (max-width: 1280px) {
+  .slider-prev {
+    left: -8px;
+  }
+
+  .slider-next {
+    right: -8px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .service-slide {
+    flex-basis: calc((100% - 1.5rem) / 2);
+  }
+}
+
+@media (max-width: 768px) {
+  .service-slide {
+    flex-basis: 85%;
+  }
+
+  .slider-arrow {
+    display: none;
+  }
 }
 
 .process-step {
