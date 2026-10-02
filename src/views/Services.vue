@@ -130,6 +130,9 @@
       </div>
     </section>
 
+    <!-- FAQ -->
+    <FaqSection />
+
     <!-- CTA Section -->
     <section class="section cta-band">
       <div class="container text-center">
@@ -147,6 +150,7 @@
 import { RouterLink } from 'vue-router'
 import heroImage from '../assets/images/services-hero.jpg'
 import CardSlider from '../components/CardSlider.vue'
+import FaqSection from '../components/FaqSection.vue'
 import StarRating from '../components/StarRating.vue'
 
 const services = [
