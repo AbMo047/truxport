@@ -19,7 +19,7 @@
           <p>Wat ons onderscheidt in de transport- en logistieksector</p>
         </div>
 
-        <div class="grid grid-3">
+        <CardSlider>
           <div class="card">
             <h3>🤝 Betrouwbaarheid</h3>
             <p>Wij leveren wat wij beloven. Duidelijke communicatie en opvolging van ophaling tot levering, bij elke zending.</p>
@@ -34,7 +34,7 @@
             <h3>🌱 Moderne & Duurzame Vloot</h3>
             <p>Vrachtwagens volgens de Euro 6 norm, met een groeiend aantal elektrische voertuigen voor emissievrij transport.</p>
           </div>
-        </div>
+        </CardSlider>
       </div>
     </section>
 
@@ -46,7 +46,7 @@
           <p>Van spoedzendingen tot internationaal transport, wij hebben de juiste oplossing</p>
         </div>
 
-        <div class="grid grid-3">
+        <CardSlider>
           <div class="card">
             <h3>⚠️ ADR Transport</h3>
             <p>Veilig en gecertificeerd transport van gevaarlijke goederen, nationaal en internationaal.</p>
@@ -76,9 +76,9 @@
             <h3>🚢 Bevoorrading van Schepen</h3>
             <p>Tijdige levering van goederen aan schepen, afgestemd op het vaarschema in de haven.</p>
           </div>
-        </div>
+        </CardSlider>
 
-        <div class="text-center" style="margin-top: 2rem;">
+        <div class="text-center" style="margin-top: 1.5rem;">
           <router-link to="/diensten" class="btn btn-primary">Bekijk Alle Diensten</router-link>
         </div>
       </div>
@@ -95,7 +95,7 @@
           <p>Onze ambitie: groeien tot een toonaangevende transportpartner in België en Europa</p>
         </div>
 
-        <div class="grid grid-4">
+        <div class="grid grid-4 stats-grid">
           <div class="card text-center">
             <h3 class="stat-number">15+</h3>
             <p>Jaar Ervaring</p>
@@ -137,6 +137,7 @@
 
 <script setup lang="ts">
 import heroImage from '../assets/images/home-hero-highway.jpg'
+import CardSlider from '../components/CardSlider.vue'
 import TrustSection from '../components/TrustSection.vue'
 </script>
 
@@ -156,6 +157,23 @@ import TrustSection from '../components/TrustSection.vue'
 }
 
 @media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .stats-grid .card {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .stats-grid .stat-number {
+    font-size: 2rem;
+  }
+
+  .stats-grid p {
+    margin-bottom: 0;
+  }
+
   .hero-buttons {
     flex-direction: column;
     align-items: center;

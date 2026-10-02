@@ -9,7 +9,7 @@
         <span class="client-logo">PortLogix Antwerpen</span>
       </div>
 
-      <div class="grid grid-2 testimonial-grid">
+      <CardSlider :per-view="2">
         <div class="card testimonial-card">
           <p class="quote">"TruxPort is al drie jaar onze vaste partner voor palletvervoer naar Duitsland. Altijd op tijd, altijd correct afgeleverd."</p>
           <div class="author">
@@ -41,10 +41,14 @@
             <span>Inkoopmanager, Delcroix Interieur</span>
           </div>
         </div>
-      </div>
+      </CardSlider>
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+import CardSlider from './CardSlider.vue'
+</script>
 
 <style scoped>
 .trust-label {
@@ -74,16 +78,16 @@
   letter-spacing: 0.3px;
 }
 
-.testimonial-grid {
-  margin-top: 0;
-}
-
 .testimonial-card .quote {
   color: var(--text);
   font-size: 1.05rem;
   line-height: 1.7;
   margin-bottom: 1.5rem;
   position: relative;
+}
+
+.testimonial-card .author {
+  margin-top: auto;
 }
 
 .testimonial-card .author {
