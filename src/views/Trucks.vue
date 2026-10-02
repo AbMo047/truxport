@@ -16,7 +16,7 @@
           <p>Van kleine bestelwagens tot grote vrachtwagens - wij hebben de juiste voertuigen voor elke klus</p>
         </div>
         
-        <div class="grid grid-2">
+        <CardSlider>
           <div class="card">
             <h3>🚐 Bestelwagens (3.5 ton)</h3>
             <p>Perfect voor stadsdistributie en kleine leveringen. Wendbaar en brandstofzuinig.</p>
@@ -134,7 +134,7 @@
               </ul>
             </div>
           </div>
-        </div>
+        </CardSlider>
       </div>
     </section>
 
@@ -146,7 +146,7 @@
           <p>Voor bijzondere transporten en specifieke behoeften</p>
         </div>
         
-        <div class="grid grid-3">
+        <CardSlider>
           <div class="card">
             <h3>✈️ Luchtvracht Voertuigen</h3>
             <p>Gespecialiseerde voertuigen voor luchthaven transport en spoedzendingen.</p>
@@ -290,7 +290,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </CardSlider>
       </div>
     </section>
 
@@ -302,7 +302,7 @@
           <p>Moderne technologie voor veilig en efficiënt transport</p>
         </div>
         
-        <div class="grid grid-2">
+        <CardSlider :per-view="2">
           <div class="card">
             <h3>🛡️ Veiligheidssystemen</h3>
             <ul>
@@ -326,7 +326,7 @@
               <li><strong>Connectivity:</strong> 4G/5G verbinding</li>
             </ul>
           </div>
-        </div>
+        </CardSlider>
       </div>
     </section>
 
@@ -338,7 +338,7 @@
           <p>Wij zetten ons in voor duurzaam en milieuvriendelijk transport</p>
         </div>
         
-        <div class="grid grid-3">
+        <CardSlider>
           <div class="card text-center">
             <h3>🌱 Euro 6 Norm</h3>
             <p>Alle vrachtwagens voldoen aan de strengste Europese emissienormen</p>
@@ -353,7 +353,7 @@
             <h3>🔄 Brandstofbesparing</h3>
             <p>Moderne motoren en aerodynamica zorgen voor optimaal brandstofverbruik</p>
           </div>
-        </div>
+        </CardSlider>
       </div>
     </section>
 
@@ -372,6 +372,7 @@
 
 <script setup lang="ts">
 import heroImage from '../assets/images/trucks-hero.jpg'
+import CardSlider from '../components/CardSlider.vue'
 </script>
 
 <style scoped>
